@@ -1,0 +1,30 @@
+{% load static %}
+<!-- MENU SIDEBAR-->
+<aside class="menu-sidebar d-none d-lg-block">
+    <div class="logo">
+        <a href="#">
+            <img src="{% static 'images/icon/logo.png' %}" alt="Cool Admin" />
+        </a>
+    </div>
+    <div class="menu-sidebar__content js-scrollbar1">
+        <nav class="navbar-sidebar">
+            <ul class="list-unstyled navbar__list">
+                {% url 'home_page' as home_page %}
+                {% url 'faculty_page' as faculty_page %}
+                {% url 'subject_page' as subject_page %}
+                {% url 'teacher_page' as teacher_page %}
+                {% url 'group_page' as group_page %}
+                {% url 'student_page' as student_page %}
+                <li class="{% if request.get_full_path == home_page %}active{% endif %}">
+                    <a href="{% url 'home_page' %}"><i class="fas fa-tachometer-alt"></i>Dashboard</a>
+                </li>
+                <li class="{% if request.get_full_path == faculty_page %}active{% endif %}"><a href="{% url 'faculty_page' %}"><i class="fas fa-chart-bar"></i>Fakultetlar</a></li>
+                <li class="{% if request.get_full_path == subject_page %}active{% endif %}"><a href="{% url 'subject_page' %}"><i class="fas fa-chart-bar"></i>Fanlar</a></li>
+                <li class="{% if request.get_full_path == teacher_page %}active{% endif %}"><a href="{% url 'teacher_page' %}"><i class="fas fa-chart-bar"></i>O'qituvchilar</a></li>
+                <li class="{% if request.get_full_path == group_page %}active{% endif %}"><a href="{% url 'group_page' %}"><i class="fas fa-chart-bar"></i>Guruh</a></li>
+                <li class="{% if request.get_full_path == student_page %}active{% endif %}"><a href="{% url 'student_page' %}"><i class="fas fa-chart-bar"></i>Talabalar</a></li>
+            </ul>
+        </nav>
+    </div>
+</aside>
+<!-- END MENU SIDEBAR-->
